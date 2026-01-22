@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf Example</title>
+</head>
+<body>
+    <h1>Employee Actions</h1>
+
+    <!-- View Button -->
+    <form th:action="@{/add}" method="get" style="display:inline;">
+        <button type="submit">Add</button>
+    </form>
+
+    <!-- Get All Button -->
+    <form th:action="@{/list}" method="get" style="display:inline;">
+        <button type="submit">Display All</button>
+    </form>
+
+    <hr/>
+
+    <!-- Display result if available -->
+    <div th:if="${data != null}">
+        <h2>Result:</h2>
+        <ul>
+            <li th:each="item : ${data}" th:text="${item}"></li>
+        </ul>
+    </div>
+</body>
+</html>

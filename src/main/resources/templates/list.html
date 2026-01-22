@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee List</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Employee List</h1>
+
+<table th:if="${employees != null}">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="emp : ${employees}">
+            <td th:text="${emp.name}"></td>
+            <td th:text="${emp.department}"></td>
+            <td th:text="${emp.address}"></td>
+        </tr>
+    </tbody>
+</table>
+
+<p th:if="${employees == null || #lists.isEmpty(employees)}">
+    No employees found.
+</p>
+
+</body>
+</html>

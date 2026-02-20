@@ -23,7 +23,7 @@ public class EmployeeUtil {
 	}
 
 	public String addEmployee(EmployeeDto employeeDto) {
-		String url = "http://localhost:9000/employee/add";
+		String url = "http://employee-backend:9000/employee/add";
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
@@ -36,7 +36,7 @@ public class EmployeeUtil {
 	}
 
 	public List<EmployeeDto> getEmployees() {
-		String url = "http://localhost:9000/employee/get";
+		String url = "http://employee-backend:9000/employee/get";
 
 		ResponseEntity<List<EmployeeDto>> response =
 	            restTemplate.exchange(
